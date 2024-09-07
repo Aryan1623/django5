@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'stylenav.css' %}">
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Forum</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Coding2go</a></li>
+      <li class="hideOnMobile"><a href="#">Blog</a></li>
+      <li class="hideOnMobile"><a href="#">Products</a></li>
+      <li class="hideOnMobile"><a href="#">About</a></li>
+      <li class="hideOnMobile"><a href="#">Forum</a></li>
+      <li class="hideOnMobile"><a href="#">Login</a></li>
+      <li class="menu-button" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+
+  
+  
+  <div class="container1" style="
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fce3fe;
+  padding: 20px;
+  box-sizing: border-box;">
+  <div class="captivatesection" style="
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  gap: 5px;
+  overflow: hidden;
+  white-space: nowrap;">
+  <span class="word" style="
+    opacity: 0;
+    animation: appear 3s linear forwards, dissolve 3s linear 3s forwards;
+    animation-delay: 0s;">Let's</span>
+  <span class="word" style="
+    opacity: 0;
+    animation: appear 3s linear forwards, dissolve 3s linear 3s forwards;
+    animation-delay: 1s;">get</span>
+  <span class="word" style="
+    opacity: 0;
+    animation: appear 3s linear forwards, dissolve 3s linear 3s forwards;
+    animation-delay: 2s;">started</span>
+</div>
+
+<style>
+  @keyframes appear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes dissolve {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+</style>
+
+  <div class="innercontainer" style="
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;">
+    <form method="POST" style="display: flex; flex-direction: column;">
+        {%csrf_token%}
+      <p style="
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #333;">
+        Username:
+      </p>
+      <input type="text" placeholder="Enter username" name="username" style="
+        padding-left: 9px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-right: 0px;
+        font-size: 14px;
+        border: 1px solid #c9c9c9;
+        color: #5c5c5c;
+        margin-bottom: 20px;
+        width: 100%;"/>
+      <p style="
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #333;">
+        Password:
+      </p>
+      <input type="password" placeholder="Enter password" name="password" style="
+        padding-left: 9px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-right: 0px;
+        font-size: 14px;
+        border: 1px solid #c9c9c9;
+        color: #5c5c5c;
+        margin-bottom: 20px;
+        width: 100%;"/>
+      <button type="submit" style="
+        padding: 12px;
+        font-size: 16px;
+        color: white;
+        background: #ff4141;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;">
+        Login
+      </button>
+    </form>
+  </div>
+</div>
+
+  
+  <script>
+    function showSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const menubutton = document.querySelector('.menu-button');
+      sidebar.style.display = 'flex';
+      menubutton.style.display = 'none';
+    }
+
+    function hideSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const menubutton = document.querySelector('.menu-button');
+      sidebar.style.display = 'none';
+      menubutton.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
+
+
+
